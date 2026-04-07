@@ -53,7 +53,6 @@ function Dashboard() {
   const [expandedTracker, setExpandedTracker] = useState<number | null>(null);
   const [showAddTracker, setShowAddTracker] = useState(false);
   const [showAddNotif, setShowAddNotif] = useState<number | null>(null);
-  const [refreshingId, setRefreshingId] = useState<number | null>(null);
 
   // Sync with loader data on navigation
   useEffect(() => {
@@ -68,17 +67,6 @@ function Dashboard() {
     ]);
     setTrackersList(t);
     setNotifConfigs(n);
-  };
-
-  const handleRefresh = async (trackerId: number) => {
-    setRefreshingId(trackerId);
-    try {
-      await triggerRefresh({ data: { trackerId } });
-    } catch (err) {
-      console.error("Refresh failed:", err);
-    } finally {
-      setRefreshingId(null);
-    }
   };
 
   return (
@@ -147,8 +135,7 @@ function Dashboard() {
                       )}
                     </div>
                     <p className="mt-0.5 text-xs text-[var(--sea-ink-soft)]">
-                      Room: {tracker.roomId} | Slots: {tracker.slotIds} |
-                      Period: {tracker.periodMinutes}min
+                      Room: {tracker.roomId} | Slots: {tracker.slotIds}
                     </p>
                   </div>
 
@@ -174,17 +161,6 @@ function Dashboard() {
                       ) : (
                         <PowerOff className="h-4 w-4" />
                       )}
-                    </button>
-                    <button
-                      type="button"
-                      title="Refresh now"
-                      disabled={refreshingId === tracker.id}
-                      onClick={() => handleRefresh(tracker.id)}
-                      className="rounded-lg p-2 text-[var(--sea-ink-soft)] transition hover:bg-[var(--link-bg-hover)] hover:text-[var(--sea-ink)] disabled:opacity-50"
-                    >
-                      <RefreshCw
-                        className={`h-4 w-4 ${refreshingId === tracker.id ? "animate-spin" : ""}`}
-                      />
                     </button>
                     <button
                       type="button"
