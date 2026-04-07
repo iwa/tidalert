@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import {
   Plus,
   Trash2,
-  RefreshCw,
   Bell,
   Settings,
   Power,
@@ -22,7 +21,7 @@ import {
   deleteNotificationConfig,
   updateNotificationConfig,
 } from "#/lib/server/trackers";
-import { validateRoom, triggerRefresh } from "#/lib/server/ap-api";
+import { validateRoom } from "#/lib/server/ap-api";
 import { getAuthSession } from "#/lib/server/authSession";
 
 export const Route = createFileRoute("/dashboard")({
