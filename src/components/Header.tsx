@@ -11,7 +11,7 @@ import { Button } from "./ui/button.tsx";
 
 export default function Header() {
   return (
-    <header className="border-b border-secondary p-4">
+    <header className="border-b border-secondary p-4 px-24">
       <nav className="flex flex-wrap items-center justify-between">
         <Link to="/" className="flex flex-row gap-2 items-center">
           <Waves />

@@ -12,7 +12,7 @@ export const Route = createFileRoute("/")({ component: LandingPage });
 
 function LandingPage() {
   return (
-    <main className="px-4 pb-8 pt-14">
+    <main className="px-24 pb-8 pt-14">
       <section className="relative overflow-hidden">
         <p className="mb-3">Archipelago Item Tracker</p>
         <h1 className="display-title mb-5 max-w-3xl text-4xl leading-[1.02] font-bold tracking-tight sm:text-6xl">
