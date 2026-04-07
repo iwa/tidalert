@@ -95,7 +95,7 @@ function Dashboard() {
         <button
           type="button"
           onClick={() => setShowAddTracker(true)}
-          className="flex items-center gap-2 rounded-full border border-[rgba(50,143,151,0.3)] bg-[rgba(79,184,178,0.14)] px-4 py-2 text-sm font-semibold text-[var(--lagoon-deep)] transition hover:-translate-y-0.5 hover:bg-[rgba(79,184,178,0.24)]"
+          className="flex items-center gap-2 rounded-full border border-secondary bg-secondary px-4 py-2 text-sm font-semibold text-[var(--lagoon-deep)] transition hover:-translate-y-0.5 hover:bg-[rgba(79,184,178,0.24)]"
         >
           <Plus className="h-4 w-4" />
           Add Tracker
@@ -313,7 +313,7 @@ function AddTrackerForm({
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.SubmitEvent) => {
     e.preventDefault();
     if (!name || !roomId || !slotIds) return;
     setSubmitting(true);
@@ -484,9 +484,6 @@ function AddNotificationForm({
   const [webhookUrl, setWebhookUrl] = useState("");
   const [notifyProgression, setNotifyProgression] = useState(true);
   const [notifyUseful, setNotifyUseful] = useState(true);
-  const [notifyTraps, setNotifyTraps] = useState(false);
-  const [notifyNormal, setNotifyNormal] = useState(false);
-  const [notifySelfFound, setNotifySelfFound] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
 
@@ -502,9 +499,6 @@ function AddNotificationForm({
           webhookUrl,
           notifyProgression,
           notifyUseful,
-          notifyTraps,
-          notifyNormal,
-          notifySelfFound,
         },
       });
       await onCreated();
@@ -551,21 +545,6 @@ function AddNotificationForm({
               checked={notifyUseful}
               onChange={setNotifyUseful}
             />
-            <Checkbox
-              label="Traps"
-              checked={notifyTraps}
-              onChange={setNotifyTraps}
-            />
-            <Checkbox
-              label="Normal"
-              checked={notifyNormal}
-              onChange={setNotifyNormal}
-            />
-            <Checkbox
-              label="Self-found"
-              checked={notifySelfFound}
-              onChange={setNotifySelfFound}
-            />
           </div>
         </div>
 
@@ -606,9 +585,6 @@ function NotificationConfigCard({
     enabled: boolean | null;
     notifyProgression: boolean | null;
     notifyUseful: boolean | null;
-    notifyTraps: boolean | null;
-    notifyNormal: boolean | null;
-    notifySelfFound: boolean | null;
   };
   onUpdated: () => Promise<void>;
 }) {
@@ -628,9 +604,6 @@ function NotificationConfigCard({
             <Tag label="Progression" color="purple" />
           )}
           {config.notifyUseful && <Tag label="Useful" color="blue" />}
-          {config.notifyTraps && <Tag label="Traps" color="red" />}
-          {config.notifyNormal && <Tag label="Normal" color="gray" />}
-          {config.notifySelfFound && <Tag label="Self-found" color="green" />}
         </div>
       </div>
       <div className="flex items-center gap-1">
