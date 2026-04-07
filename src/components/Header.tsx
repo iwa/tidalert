@@ -26,8 +26,11 @@ export default function Header() {
           </HoverCardTrigger>
           <HoverCardContent side="bottom">
             <p className="text-sm">
-              To limit the number of requests made to the Archipelago server,
-              trackers will be refreshed every hour.
+              To avoid overloading the Archipelago server, trackers will be
+              refreshed at a global set interval.
+            </p>
+            <p className="text-sm font-semibold pt-2">
+              This cannot be customized.
             </p>
           </HoverCardContent>
         </HoverCard>
