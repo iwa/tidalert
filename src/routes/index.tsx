@@ -23,8 +23,8 @@ function LandingPage() {
           Never miss a received item.
         </h1>
         <p className="mb-8 max-w-2xl text-base text-[var(--sea-ink-soft)] sm:text-lg">
-          Track your Archipelago Multiworld randomizer games and get Discord
-          notifications whenever someone sends you a progression or useful item.
+          Track your Archipelago async games and get notifications whenever
+          someone sends you a progression or useful item.
         </p>
         <div className="flex flex-wrap gap-3">
           <Link
