@@ -38,6 +38,7 @@ export default function BetterAuthHeader() {
           type="button"
           onClick={() => {
             void authClient.signOut();
+            window.location.href = "/";
           }}
           className="h-8 rounded-lg border border-neutral-300 bg-white px-3 text-xs font-medium text-neutral-900 transition-colors hover:bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-50 dark:hover:bg-neutral-800"
         >
